@@ -46,7 +46,7 @@
         let chart = 0;
         let seconds = 0;
         let timer;
-        let check = true;
+        let check = 1;
         const words = [
             "mercury", "venus", "creter", "mars", "jupiter", "aurora",
             "saturn", "uranus", "neputune", "phobos", "deimos", "io",
@@ -56,6 +56,7 @@
         function game() {
             div.appendChild(p2);
             timeCounter();
+            check = 1;
             document.addEventListener("keydown", (e) => {
                 clickedKey = e.key;
                 wordChecker();
@@ -83,7 +84,7 @@
             }
         }
         function wrong() {
-            if (check === true) {
+            if (check === 1) {
                 p2.classList.add("wrong");
                 setTimeout(wr, 1);
             }
@@ -119,7 +120,7 @@
             p.textContent = `${qSeconds}seconds / ${Math.floor((typeCounter / (typeCounter + wrongCounter)) * 10000) / 100}%`;
             p2.textContent = "click to restart";
             p2.addEventListener("click", restart);
-            check = false;
+            check = 0;
         }
         start();
     }
